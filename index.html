@@ -1,132 +1,92 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>داشبورد | مدیریت وظایف</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/dist/font-face.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
-</head>
-<body>
-
-    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
-    <div class="app-wrapper">
-
-        <!-- سایدبار -->
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-close d-lg-none">
-                <button class="btn btn-sm" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
-            </div>
-            <a href="index.html" class="brand">
-                <span class="brand-mark"><i class="bi bi-check2-square"></i></span>
-                مدیریت وظایف
-            </a>
-            <div class="brand-sub">task-manager · local</div>
-            <nav class="nav flex-column">
-                <a class="nav-link active" href="index.html"><i class="bi bi-grid-1x2"></i> داشبورد</a>
-                <a class="nav-link" href="tasks.html"><i class="bi bi-list-task"></i> وظایف</a>
-                <hr class="nav-divider">
-                <a class="nav-link" href="#" id="logoutBtn"><i class="bi bi-box-arrow-right"></i> خروج</a>
-            </nav>
-            <div class="sidebar-foot">
-                <span>v1.0 · offline-first</span>
-                <a href="#" id="resetDataBtn" title="پاک‌کردن همه‌ی داده‌ها"><i class="bi bi-arrow-counterclockwise"></i></a>
-            </div>
-        </aside>
-
-        <div class="main-content">
-            <!-- نوار بالا -->
-            <header class="topbar">
-                <div class="d-flex align-items-center gap-3">
-                    <button class="btn btn-sm btn-outline-secondary d-lg-none" id="sidebarToggle">
-                        <i class="bi bi-list"></i>
-                    </button>
-                    <h5 class="mb-0">داشبورد</h5>
-                </div>
-                <div class="d-flex align-items-center gap-3">
-                    <button class="btn btn-sm btn-outline-secondary" id="themeToggle">
-                        <i class="bi bi-moon-stars-fill"></i>
-                    </button>
-                    <span class="text-muted small d-none d-sm-inline">خوش آمدی، <span data-user-name class="fw-semibold text-body"></span></span>
-                    <span class="avatar-chip d-none d-sm-flex" data-user-initial>·</span>
-                </div>
-            </header>
-
-            <main class="page-body">
-
-                <div class="row g-3 mb-4">
-                    <div class="col-6 col-lg-3">
-                        <div class="stat-card bg-total">
-                            <i class="bi bi-layers stat-icon"></i>
-                            <div class="stat-eyebrow">کل وظایف</div>
-                            <div class="stat-number" id="statTotal">0</div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-lg-3">
-                        <div class="stat-card bg-pending">
-                            <i class="bi bi-hourglass-split stat-icon"></i>
-                            <div class="stat-eyebrow">در انتظار</div>
-                            <div class="stat-number" id="statPending">0</div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-lg-3">
-                        <div class="stat-card bg-progress">
-                            <i class="bi bi-arrow-repeat stat-icon"></i>
-                            <div class="stat-eyebrow">در حال انجام</div>
-                            <div class="stat-number" id="statInProgress">0</div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-lg-3">
-                        <div class="stat-card bg-completed">
-                            <i class="bi bi-check-circle stat-icon"></i>
-                            <div class="stat-eyebrow">انجام‌شده</div>
-                            <div class="stat-number" id="statCompleted">0</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row g-3">
-                    <div class="col-lg-5">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h6 class="card-title mb-3">وضعیت وظایف</h6>
-                                <div class="chart-box">
-                                    <canvas id="statusChart"></canvas>
-                                </div>
-                                <div id="chartEmpty" class="empty-state py-4 d-none">
-                                    <div class="empty-icon"><i class="bi bi-pie-chart"></i></div>
-                                    <p class="mb-0 small">هنوز داده‌ای برای نمایش نیست</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-7">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <h6 class="card-title mb-0">نزدیک‌ترین سررسیدها</h6>
-                                    <span class="tag tag-brick">
-                                        <span id="statOverdue" class="mono">0</span> دیرکرد
-                                    </span>
-                                </div>
-                                <ul class="list-group list-group-flush" id="upcomingList"></ul>
-                                <a href="tasks.html" class="btn btn-sm btn-outline-primary mt-3">مشاهده همه وظایف</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </main>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Vazirmatn:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>رزرو صندلی سینما · Cinema Seat Booking</title>
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand__icon" aria-hidden="true">🎬</span>
+          <span class="brand__name" data-i18n="brandName">رزرو صندلی سینما</span>
         </div>
+        <button id="langToggle" class="lang-toggle" type="button" aria-label="Change language / تغییر زبان">
+          <span class="lang-toggle__opt is-active" data-lang-opt="fa">فا</span>
+          <span class="lang-toggle__divider">/</span>
+          <span class="lang-toggle__opt" data-lang-opt="en">EN</span>
+        </button>
+      </header>
+
+      <main class="layout">
+        <section class="panel movies-panel" aria-label="Movie selection">
+          <div class="panel__head">
+            <span class="eyebrow mono" data-i18n="nowShowingEyebrow">اکران این هفته</span>
+            <h2 class="section-title" data-i18n="chooseMovie">یک فیلم انتخاب کنید</h2>
+          </div>
+          <div class="movie-list" id="movieList" role="radiogroup" aria-label="Movies"></div>
+        </section>
+
+        <section class="panel theater-panel">
+          <div class="screen-wrap">
+            <div class="screen"></div>
+            <span class="screen__label mono" data-i18n="screenLabel">پرده نمایش</span>
+          </div>
+
+          <div class="seat-map" id="seatMap"></div>
+
+          <ul class="legend">
+            <li>
+              <span class="legend__seat legend__seat--available"></span>
+              <span data-i18n="legendAvailable">آزاد</span>
+            </li>
+            <li>
+              <span class="legend__seat legend__seat--selected"></span>
+              <span data-i18n="legendSelected">انتخاب‌شده</span>
+            </li>
+            <li>
+              <span class="legend__seat legend__seat--occupied"></span>
+              <span data-i18n="legendOccupied">پر شده</span>
+            </li>
+          </ul>
+        </section>
+      </main>
+
+      <footer class="summary-bar">
+        <div class="summary-bar__info">
+          <div class="summary-bar__stat">
+            <span class="summary-bar__label" data-i18n="seatsLabel">صندلی انتخاب‌شده</span>
+            <strong id="seatCount">0</strong>
+          </div>
+          <div class="summary-bar__stat">
+            <span class="summary-bar__label" data-i18n="totalLabel">مبلغ قابل پرداخت</span>
+            <strong>$<span id="totalPrice">0</span></strong>
+          </div>
+        </div>
+        <button id="confirmBtn" class="confirm-btn" type="button" disabled>
+          <span data-i18n="confirmBtn">تایید و رزرو بلیت</span>
+        </button>
+      </footer>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
-    <script src="storage.js"></script>
-    <script src="theme.js"></script>
-    <script src="dashboard.js"></script>
-</body>
+    <div class="modal-overlay" id="modalOverlay" hidden>
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal__icon" aria-hidden="true">✓</div>
+        <h3 id="modalTitle" data-i18n="modalTitle">رزرو با موفقیت انجام شد</h3>
+        <p class="modal__details" id="modalDetails"></p>
+        <button id="modalClose" class="confirm-btn" type="button" data-i18n="modalClose">رزرو جدید</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
