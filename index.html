@@ -1,655 +1,132 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>داشبورد | مدیریت وظایف</title>
 
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>
-فاطمه باقری | Front-end Developer
-</title>
-
-<link rel="stylesheet" href="style.css">
-
-<script>
-(function(){
-    var saved = localStorage.getItem("theme");
-    var theme = saved || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
-    document.documentElement.setAttribute("data-theme", theme);
-})();
-</script>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/dist/font-face.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 </head>
-
-
 <body>
 
-<!-- لایه‌های پارالاکس پس‌زمینه: هرکدام با سرعت متفاوت هنگام اسکرول جابه‌جا می‌شوند تا حس عمق بسازند -->
-<div class="bg-decor" aria-hidden="true">
-    <span class="orb orb-1" data-speed="0.15"></span>
-    <span class="orb orb-2" data-speed="0.3"></span>
-    <span class="orb orb-3" data-speed="0.08"></span>
-    <span class="grain"></span>
-</div>
-
-
-<header class="reveal" id="site-header">
-
-<div class="container">
-
-
-<div class="header-top">
-
-<h1 class="site-title">
-فاطمه باقری
-</h1>
-
-<div class="header-actions">
-
-<button id="theme-toggle" class="theme-toggle" aria-label="تغییر حالت روز و شب" title="تغییر حالت روز و شب">
-  <span class="toggle-track">
-    <span class="toggle-thumb">
-      <svg class="icon-sun" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-      <svg class="icon-moon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </span>
-  </span>
-</button>
-
-<button id="menu-toggle" class="menu-toggle" aria-label="باز کردن منو" aria-expanded="false" aria-controls="main-nav">
-  <span class="menu-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </span>
-  <span class="menu-toggle-label">منو</span>
-</button>
-
-</div> 
-
-</div>
-
-
-
-<nav id="main-nav" class="main-nav">
-
-<div class="main-nav-inner">
-
-<ul>
-
-<li>
-<a href="#about" class="nav-link">درباره من</a>
-</li>
-
-<li>
-<a href="#skills" class="nav-link">مهارت‌ها</a>
-</li>
-
-<li>
-<a href="#education" class="nav-link">دوره‌ها</a>
-</li>
-
-<li>
-<a href="#portfolio" class="nav-link">پروژه‌ها</a>
-</li>
-
-<li>
-<a href="#activities" class="nav-link">فعالیت‌ها</a>
-</li>
-
-<li>
-<a href="#contact" class="nav-link">ارتباط با من</a>
-</li>
-
-</ul>
-
-</div>
-
-</nav>
-
-
-</div>
-
-</header>
-
-
-
-
-
-<main>
-
-
-<div class="container">
-
-
-
-<section class="hero reveal">
-
-
-<div class="hero-content">
-
-<span class="hero-glyph" aria-hidden="true">&lt;/&gt;</span>
-
-<h2>
-<span id="typing"></span>
-</h2>
-
-
-
-<div class="social">
-
-<a href="#" class="social-link">
-<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.95.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.07.78 2.16 0 1.56-.02 2.82-.02 3.2 0 .31.21.67.8.56A10.52 10.52 0 0 0 23.5 12c0-6.35-5.15-11.5-11.5-11.5z"/></svg>
-<span>گیت‌هاب</span>
-</a>
-
-<a href="#" class="social-link">
-<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
-<span>لینکدین</span>
-</a>
-
-<a href="mailto:fatemehbagheri.1.198.l@gmail.com" class="social-link">
-<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5v-13zm2.2.3 7.3 5.7c.3.24.7.24 1 0l7.3-5.7H4.2zM4 7.6v10.9c0 .28.22.5.5.5h15a.5.5 0 0 0 .5-.5V7.6l-7.4 5.77a2.5 2.5 0 0 1-3.2 0L4 7.6z"/></svg>
-<span>ایمیل</span>
-</a>
-
-</div>
-
-
-
-<div class="buttons">
-
-
-<a href="#" class="btn">
-
-دانلود رزومه
-
-</a>
-
-
-
-<a href="#contact" class="btn primary">
-
-همکاری با من
-
-</a>
-
-
-
-</div>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-<section id="about" class="box reveal">
-
-
-<h2>
-<svg class="h2-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg>
-درباره من
-</h2>
-
-
-<p>
-
-سلام، من یک توسعه‌دهنده فرانت‌اند هستم.
-به ساخت رابط‌های کاربری مدرن، سریع و کاربردی علاقه دارم.
-
-</p>
-
-
-<p>
-
-تمرکز من روی HTML، CSS، JavaScript و React
-و ساخت تجربه کاربری حرفه‌ای است.
-
-</p>
-
-
-</section>
-
-
-<section id="skills" class="box reveal">
-
-<h2>
-<svg class="h2-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-مهارت‌ها
-</h2>
-
-<div class="skills">
-
-<div class="skill">
-<div class="skill-title">
-<span>HTML</span>
-<span class="skill-level level-advanced">پیشرفته</span>
-</div>
-</div>
-
-<div class="skill">
-<div class="skill-title">
-<span>CSS</span>
-<span class="skill-level level-advanced">پیشرفته</span>
-</div>
-</div>
-
-<div class="skill">
-<div class="skill-title">
-<span>JavaScript</span>
-<span class="skill-level level-mid">متوسط</span>
-</div>
-</div>
-
-<div class="skill">
-<div class="skill-title">
-<span>Git</span>
-<span class="skill-level level-basic">مقدماتی</span>
-</div>
-</div>
-
-<div class="skill">
-<div class="skill-title">
-<span>React</span>
-<span class="skill-level level-basic">مقدماتی</span>
-</div>
-</div>
-
-<div class="skill">
-<div class="skill-title">
-<span>Vite</span>
-<span class="skill-level level-intro"> متوسط </span>
-</div>
-</div>
-
-<div class="skill">
-<div class="skill-title">
-<span>npm</span>
-<span class="skill-level level-intro"> متوسط </span>
-</div>
-</div>
-
-<div class="skill">
-<div class="skill-title">
-<span>Responsive</span>
-<span class="skill-level level-intro"> متوسط </span>
-</div>
-</div>
-
-
-</div>
-
-<p class="ai-tools-note">
-استفاده از ابزارهای هوش مصنوعی (ChatGPT, Claude, GitHub Copilot) برای تسریع توسعه، دیباگ و یادگیری
-</p>
-</section>
-
-<section id="experience" class="box reveal">
-  
-  
-  <h2>
-<svg id="activities"  class="h2-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-<path d="M3 3v18h18"/>
-<path d="M7 16l4-5 3 3 5-7"/>
-</svg>
-فعالیت‌ها
-</h2>
-  
-<div class="timeline">
-
-
-
-<div class="timeline-item">
-
-
-<h3>
-توسعه‌دهنده فرانت‌اند
-</h3>
-
-
-<span>
-۱۴۰۴ - اکنون
-</span>
-
-
-<p>
-
-ساخت وب‌سایت‌های واکنش‌گرا و رابط‌های کاربری
-با استفاده از تکنولوژی‌های مدرن وب.
-
-</p>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="timeline-item">
-
-
-<h3>
-پروژه‌های شخصی
-</h3>
-
-
-<span>
-۱۴۰۴ - اکنون
-</span>
-
-
-<p>
-
-طراحی و پیاده‌سازی پروژه‌های مختلف برای افزایش
-تجربه برنامه‌نویسی.
-
-</p>
-
-
-</div>
-
-
-
-</div>
-
-
-</section>
-
-
-<section id="education" class="box reveal">
-
-<h2><svg class="h2-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>دوره‌های آموزشی</h2>
-
-<div class="edu-info">
-
-<p><span>موسسه:</span> ...</p>
-
-<p><span>استاد:</span> ...</p>
-
-</div>
-
-<div class="edu-items">
-
-<div class="edu-item">
-<p> HTML و CSS مقدماتی </p>
-<a href="https://aiolearn.app/cs/final/1c6cfc620786611.jpg" class="cert-link">مشاهده گواهی</a>
-</div>
-
-<div class="edu-item">
-<p> HTML و CSS پیشرفته </p>
-<a href="https://aiolearn.app/cs/final/3f637a620786612.jpg" class="cert-link">مشاهده گواهی</a>
-</div>
-
-<div class="edu-item">
-<p> JavaScript مقدماتی </p>
-<a href="https://aiolearn.app/cs/final/5ea9b7620786613.jpg" class="cert-link">مشاهده گواهی</a>
-</div>
-
-<div class="edu-item">
-<p> JavaScript پیشرفته </p>
-<a href="https://aiolearn.app/cs/final/e9894d620786614.jpg" class="cert-link">مشاهده گواهی</a>
-</div>
-
-</div>
-
-</section>
-
-<section id="portfolio" class="box reveal">
-
-
-<h2>
-<svg class="h2-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg>
-پروژه‌ها
-</h2>
-
-
-
-<div class="projects">
-
-
-
-<div class="project">
-
-
-<h3>
-وب‌سایت شخصی
-</h3>
-
-
-<p>
-
-طراحی سایت معرفی شخصی با تمرکز روی
-رابط کاربری مدرن و واکنش‌گرا.
-
-</p>
-
-
-<span>
-HTML / CSS / JavaScript
-</span>
-
-
-</div>
-
-
-
-
-
-
-<div class="project">
-
-
-<h3>
-front_end  
-</h3>
-
-
-<p>
-
-برنامه مدیریت کارها با امکان اضافه کردن،
-حذف و مدیریت وظایف.
-
-</p>
-
-
-<span>
-HTML / CSS / JavaScript
-</span>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="project">
-
-
-<h3>
-Smart Signup Form
-</h3>
-
-
-<p>
-
-یک فرم ثبت‌نام مدرن و تعاملی برای ایجاد حساب کاربری که امکان وارد کردن اطلاعات شخصی، تنظیم اطلاعات ورود و بررسی صحت داده‌ها را فراهم می‌کند. این صفحه، فرآیند ثبت‌نام کاربر را به صورت مرحله‌ای و روان نمایش می‌دهد.
-
-</p>
-
-
-<span>
-HTML / CSS / JavaScript
-</span>
-
-
-</div>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<section id="contact" class="box reveal">
-
-
-<h2>
-<svg class="h2-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-ارتباط با من
-</h2>
-
-
-
-<div class="contact-info">
-
-
-<p>
-<svg class="contact-icon" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
-ایمیل:
-fatemehbagheri.1.198.l@gmail.com
-</p>
-
-
-<p>
-<svg class="contact-icon" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-تلفن:
-09047925229
-</p>
-
-
-<p>
-<svg class="contact-icon" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-موقعیت:
-اهواز
-</p>
-
-
-</div>
-
-
-
-
-<form class="contact-form">
-
-
-<input 
-type="text"
-placeholder="نام شما">
-
-
-
-<input 
-type="email"
-placeholder="ایمیل">
-
-
-
-<textarea
-placeholder="پیام شما"></textarea>
-
-
-
-<button>
-ارسال پیام
-</button>
-
-
-
-</form>
-
-
-</section>
-
-
-
-
-
-
-</div>
-
-
-</main>
-
-
-
-
-
-
-
-
-<footer>
-
-
-<div class="container" >
-
-
-<h3>
-فاطمه باقری
-</h3>
-
-
-<p>
-توسعه‌دهنده فرانت‌اند
-</p>
-
-
-<div class="footer-links">
-
-<a href="#" class="social-link">
-<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.95.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.07.78 2.16 0 1.56-.02 2.82-.02 3.2 0 .31.21.67.8.56A10.52 10.52 0 0 0 23.5 12c0-6.35-5.15-11.5-11.5-11.5z"/></svg>
-<span>گیت‌هاب</span>
-</a>
-
-<a href="#" class="social-link">
-<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
-<span>لینکدین</span>
-</a>
-
-<a href="mailto:fatemehbagheri.1.198.l@gmail.com" class="social-link">
-<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5v-13zm2.2.3 7.3 5.7c.3.24.7.24 1 0l7.3-5.7H4.2zM4 7.6v10.9c0 .28.22.5.5.5h15a.5.5 0 0 0 .5-.5V7.6l-7.4 5.77a2.5 2.5 0 0 1-3.2 0L4 7.6z"/></svg>
-<span>ایمیل</span>
-</a>
-
-</div>
-
-
-
-<p>
-
-© 2026 تمامی حقوق محفوظ است
-
-</p>
-
-
-
-</div>
-
-
-</footer>
-
-
-<script src="Script.js"></script>
-
-
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+    <div class="app-wrapper">
+
+        <!-- سایدبار -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-close d-lg-none">
+                <button class="btn btn-sm" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <a href="index.html" class="brand">
+                <span class="brand-mark"><i class="bi bi-check2-square"></i></span>
+                مدیریت وظایف
+            </a>
+            <div class="brand-sub">task-manager · local</div>
+            <nav class="nav flex-column">
+                <a class="nav-link active" href="index.html"><i class="bi bi-grid-1x2"></i> داشبورد</a>
+                <a class="nav-link" href="tasks.html"><i class="bi bi-list-task"></i> وظایف</a>
+                <hr class="nav-divider">
+                <a class="nav-link" href="#" id="logoutBtn"><i class="bi bi-box-arrow-right"></i> خروج</a>
+            </nav>
+            <div class="sidebar-foot">
+                <span>v1.0 · offline-first</span>
+                <a href="#" id="resetDataBtn" title="پاک‌کردن همه‌ی داده‌ها"><i class="bi bi-arrow-counterclockwise"></i></a>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <!-- نوار بالا -->
+            <header class="topbar">
+                <div class="d-flex align-items-center gap-3">
+                    <button class="btn btn-sm btn-outline-secondary d-lg-none" id="sidebarToggle">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <h5 class="mb-0">داشبورد</h5>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <button class="btn btn-sm btn-outline-secondary" id="themeToggle">
+                        <i class="bi bi-moon-stars-fill"></i>
+                    </button>
+                    <span class="text-muted small d-none d-sm-inline">خوش آمدی، <span data-user-name class="fw-semibold text-body"></span></span>
+                    <span class="avatar-chip d-none d-sm-flex" data-user-initial>·</span>
+                </div>
+            </header>
+
+            <main class="page-body">
+
+                <div class="row g-3 mb-4">
+                    <div class="col-6 col-lg-3">
+                        <div class="stat-card bg-total">
+                            <i class="bi bi-layers stat-icon"></i>
+                            <div class="stat-eyebrow">کل وظایف</div>
+                            <div class="stat-number" id="statTotal">0</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="stat-card bg-pending">
+                            <i class="bi bi-hourglass-split stat-icon"></i>
+                            <div class="stat-eyebrow">در انتظار</div>
+                            <div class="stat-number" id="statPending">0</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="stat-card bg-progress">
+                            <i class="bi bi-arrow-repeat stat-icon"></i>
+                            <div class="stat-eyebrow">در حال انجام</div>
+                            <div class="stat-number" id="statInProgress">0</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="stat-card bg-completed">
+                            <i class="bi bi-check-circle stat-icon"></i>
+                            <div class="stat-eyebrow">انجام‌شده</div>
+                            <div class="stat-number" id="statCompleted">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-lg-5">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h6 class="card-title mb-3">وضعیت وظایف</h6>
+                                <div class="chart-box">
+                                    <canvas id="statusChart"></canvas>
+                                </div>
+                                <div id="chartEmpty" class="empty-state py-4 d-none">
+                                    <div class="empty-icon"><i class="bi bi-pie-chart"></i></div>
+                                    <p class="mb-0 small">هنوز داده‌ای برای نمایش نیست</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h6 class="card-title mb-0">نزدیک‌ترین سررسیدها</h6>
+                                    <span class="tag tag-brick">
+                                        <span id="statOverdue" class="mono">0</span> دیرکرد
+                                    </span>
+                                </div>
+                                <ul class="list-group list-group-flush" id="upcomingList"></ul>
+                                <a href="tasks.html" class="btn btn-sm btn-outline-primary mt-3">مشاهده همه وظایف</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <script src="storage.js"></script>
+    <script src="theme.js"></script>
+    <script src="dashboard.js"></script>
 </body>
-
 </html>
