@@ -1,3 +1,6 @@
+
+
+
 // حالت روز/شب
 
 const themeToggle = document.getElementById("theme-toggle");
@@ -177,4 +180,5 @@ function typeEffect(){
 setTimeout(typeEffect,1200);
 
 
-}
+            }
+
